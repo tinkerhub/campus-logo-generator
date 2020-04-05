@@ -1,15 +1,35 @@
-.container {
-    display: flex;
-    flex-direction: column;
+.bg-light-white{
+    background-color: #f3f3f3;
 }
 
-.flex-container {
-    width: 200px;
-    height: 147px;
-    display: flex;
+.social-icon{
+    color: #3b568d;
+    text-decoration: none !important;
 }
 
-.flex-sub {
-    width: 200px;
-    height: 147px;
+.text-blue{
+    color: #14599f;
+}
+
+.btn{
+    color: white !important;
+    background-color: #14599f !important;
+}
+
+.btn:hover{
+    background-color: #3b568d !important;
+}
+
+#svgLogo{
+    width: 60%;
+    height: auto;
+}
+
+#canvas{
+    width: 0;
+    height: auto;
+}
+
+.text-sm{
+    font-size: small;
 }
