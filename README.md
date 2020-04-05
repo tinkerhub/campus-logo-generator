@@ -4,7 +4,7 @@ This is a logo generator for TinkerHub Campus Chapters. TinkerHub Campus communi
 This logos will be used in posters, videos and posts about the coolest initiatives student leaders doing in their campuses, to spread technology learning. Contributing to this project makes you a part of that :heart:
 
 # How it works ?
-To be done
+Basically we just edit the svg file and convert it into png. BOOM!!!
 
 # Libraries and tools used
 1. HTML, CSS, JS
