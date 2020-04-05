@@ -18,8 +18,7 @@ function triggerDownload(imgURI) {
 }
 
 document.getElementById('myBtn').addEventListener('click', function () {
-    var collegeName = document.getElementById('collegeName').value;
-    document.getElementById('logoName').textContent = collegeName;
+    changeCollegeName();
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     var data = (new XMLSerializer()).serializeToString(svg);
@@ -45,3 +44,12 @@ document.getElementById('myBtn').addEventListener('click', function () {
 
     img.src = url;
 });
+
+var keyChange = document.getElementById('collegeName');
+keyChange.onkeyup = keyChange.onkeypress = function(){
+    changeCollegeName();
+}
+function changeCollegeName() {
+    var collegeName = document.getElementById('collegeName').value;
+    document.getElementById('logoName').textContent = collegeName;
+}
