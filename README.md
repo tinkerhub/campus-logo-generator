@@ -17,3 +17,4 @@ Basically we just edit the svg file and convert it into png. BOOM!!!
 # Contributors List
 1. Niyas Ashraf : [niyamax](https://github.com/niyamax)
 2. Rahul R : [monkeyscript](https://github.com/monkeyscript)
+3. Akhil Mohan:[akhilmhdh](https://github.com/akhilmhdh)
