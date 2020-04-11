@@ -1,6 +1,22 @@
 var svg = document.querySelector('svg');
 var canvas = document.querySelector('canvas');
 
+document.getElementById('toggleColor').addEventListener('click',function(evt){
+    var cardTemplate=document.querySelector(".card")
+    if(evt.target.innerHTML==="Black Logo"){
+        svg.style.fill="white"
+        cardTemplate.style.backgroundColor="#191919"
+        cardTemplate.firstElementChild.style.color="white"
+        evt.target.innerHTML="White Logo"
+    }
+    else{
+        svg.style.fill="black"
+        cardTemplate.style.backgroundColor="white"
+        cardTemplate.firstElementChild.style.color="#6c757d "
+        evt.target.innerHTML="Black Logo"
+    }
+})
+
 function triggerDownload(imgURI) {
     var evt = new MouseEvent('click', {
         view: window,
