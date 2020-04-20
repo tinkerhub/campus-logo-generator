@@ -11,12 +11,12 @@
   color: #14599f;
 }
 
-.btn {
+.btn-primary {
   color: white !important;
   background-color: #14599f !important;
 }
 
-.btn:hover {
+.btn-primary:hover {
   background-color: #3b568d !important;
 }
 
