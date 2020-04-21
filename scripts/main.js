@@ -1,22 +1,28 @@
 var svg = document.querySelector('svg');
 var canvas = document.querySelector('canvas');
 
-document.getElementById('toggleColor').addEventListener('click',function(evt){
-    var cardTemplate=document.querySelector(".card")
-    if(evt.target.innerHTML==="Black Logo"){
-        svg.style.fill="white"
-        cardTemplate.style.backgroundColor="#191919"
-        cardTemplate.firstElementChild.style.color="white"
-        evt.target.innerHTML="White Logo"
-    }
-    else{
-        svg.style.fill="black"
-        cardTemplate.style.backgroundColor="white"
-        cardTemplate.firstElementChild.style.color="#6c757d "
-        evt.target.innerHTML="Black Logo"
+// Add click event to theme toggle button
+document.getElementById('toggleColor').addEventListener('click', function (evt) {
+    var cardTemplate = document.querySelector(".card")
+    // Check current state
+    if (evt.target.innerHTML === "Dark Theme") {
+        svg.style.fill = "white";
+        cardTemplate.style.backgroundColor = "#191919";
+        cardTemplate.firstElementChild.style.color = "white";
+        evt.target.innerHTML = "Light Theme";
+        document.getElementById("toggleColor").classList.remove('btn-dark');
+        document.getElementById("toggleColor").classList.add('btn-light');
+    } else {
+        svg.style.fill = "black";
+        cardTemplate.style.backgroundColor = "white";
+        cardTemplate.firstElementChild.style.color = "#6c757d ";
+        evt.target.innerHTML = "Dark Theme";
+        document.getElementById("toggleColor").classList.remove('btn-light');
+        document.getElementById("toggleColor").classList.add('btn-dark');
     }
 })
 
+// Function to download image
 function triggerDownload(imgURI) {
     var evt = new MouseEvent('click', {
         view: window,
@@ -33,6 +39,7 @@ function triggerDownload(imgURI) {
     a.dispatchEvent(evt);
 }
 
+// Add click event to download button
 document.getElementById('myBtn').addEventListener('click', function () {
     changeCollegeName();
     var canvas = document.getElementById('canvas');
@@ -61,8 +68,9 @@ document.getElementById('myBtn').addEventListener('click', function () {
     img.src = url;
 });
 
+// Dynamic update of college name on keychange 
 var keyChange = document.getElementById('collegeName');
-keyChange.onkeyup = keyChange.onkeypress = function(){
+keyChange.onkeyup = keyChange.onkeypress = function () {
     changeCollegeName();
 }
 function changeCollegeName() {
