@@ -41,7 +41,7 @@ function triggerDownload(imgURI) {
 // Add click event to download button
 document.getElementById('myBtn').addEventListener('click', function () {
     changeCollegeName();
-    var openTag = '<svg title="graph" version="1.1" xmlns="http://www.w3.org/2000/svg">';
+    var openTag = '<svg id="svgLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2028 594" width="2028" height="594">';
     var closeTag = '</svg>';
     var blob = new Blob([`${openTag}${svg.innerHTML}${closeTag}`], {type: "image/svg+xml"});  
     triggerDownload(window.URL.createObjectURL(blob));
