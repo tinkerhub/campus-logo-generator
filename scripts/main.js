@@ -32,40 +32,19 @@ function triggerDownload(imgURI) {
 
     var a = document.createElement('a');
     var str = document.getElementById('collegeName').value;
-    a.setAttribute('download', "TinkerHub_".concat(str).concat(".png"));
+    a.setAttribute('download', "TinkerHub_".concat(str).concat(".svg"));
     a.setAttribute('href', imgURI);
     a.setAttribute('target', '_blank');
-
     a.dispatchEvent(evt);
 }
 
 // Add click event to download button
 document.getElementById('myBtn').addEventListener('click', function () {
     changeCollegeName();
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var data = (new XMLSerializer()).serializeToString(svg);
-    var DOMURL = window.URL || window.webkitURL || window;
-
-    var img = new Image();
-    var svgBlob = new Blob([data], {
-        type: 'image/svg+xml;charset=utf-8'
-    });
-    var url = DOMURL.createObjectURL(svgBlob);
-
-    img.onload = function () {
-        ctx.drawImage(img, 0, 0);
-        DOMURL.revokeObjectURL(url);
-
-        var imgURI = canvas
-            .toDataURL('image/png')
-            .replace('image/png', 'image/octet-stream');
-
-        triggerDownload(imgURI);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    };
-
-    img.src = url;
+    var openTag = '<svg title="graph" version="1.1" xmlns="http://www.w3.org/2000/svg">';
+    var closeTag = '</svg>';
+    var blob = new Blob([`${openTag}${svg.innerHTML}${closeTag}`], {type: "image/svg+xml"});  
+    triggerDownload(window.URL.createObjectURL(blob));
 });
 
 // Dynamic update of college name on keychange 
