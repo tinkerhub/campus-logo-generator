@@ -34,9 +34,17 @@
                 <div class="col-md-2">
                     <button id="toggleColor" class="btn btn-block btn-dark shadow-sm">Dark Theme</button>
                 </div>
-                <div class="col-md-2">
-                    <button id="myBtn" class="btn btn-block btn-primary shadow-sm">Download</button>
-                </div>
+                    <div class="col-md-2 btn-group showable">
+                        <button type="button" class="btn btn-block btn-primary shadow-sm" id="myBtn">Download</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" onclick="toggleSelect()">
+                          <span class="sr-only" id="toggleSelect">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu showable" onclick="toggleSelect()">
+                          <a class="dropdown-item" onclick="setFormat(this.innerText)">SVG</a>
+                          <a class="dropdown-item" onclick="setFormat(this.innerText)">PNG</a>
+                          <a class="dropdown-item" onclick="setFormat(this.innerText)">JPEG</a>
+                        </div>
+                      </div>
                 <div class="col-md-2"></div>
             </div>
             <br>
@@ -139,6 +147,7 @@
 
             <div>
                 <canvas id="canvas" width="2028" height="594"></canvas>
+                <img width="2028" height="594">
             </div>
 
         </div>
