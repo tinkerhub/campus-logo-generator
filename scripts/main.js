@@ -74,7 +74,11 @@ downloadBtn.addEventListener('click', function () {
     if(format === "SVG")
         return triggerDownload(blobURL);
  
-    image.addEventListener("load", function() {
+    image.addEventListener("load", function gotImage() {
+
+        window.URL.revokeObjectURL(blobURL);
+        image.removeEventListener("load",gotImage);
+
         var ctx = canvas.getContext("2d");
 
         ctx.fillStyle = color === "white" ? "black" : "white";
