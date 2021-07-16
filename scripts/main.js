@@ -37,14 +37,14 @@ function toggleSelect()
     for(var div of divs)
         if(div.classList.contains("show"))
             div.classList.remove("show");
-        else div.classList.add("show");    
+        else div.classList.add("show");        
 }
 
 // Set the fromat of image to be downloaded
 function setFormat(newFormat)
 {
     format = newFormat;
-    downloadBtn.innerText = `${format}`;
+    downloadBtn.value = `Download ${format}`;
 }
 
 // Function to download image
@@ -63,9 +63,12 @@ function triggerDownload(imgURI) {
     a.dispatchEvent(evt);
 }
 
-// Add click event to download button
-downloadBtn.addEventListener('click', function () {
+// Add submit event to download form
+document.getElementById("downloadForm").addEventListener('submit', function(event)
+{
+    event.preventDefault();
     changeCollegeName();
+
     var openTag = `<svg id="svgLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2028 594" width="2028" height="594" style="fill: ${color};">`;
     var closeTag = '</svg>';
     var blob = new Blob([`${openTag}${svg.innerHTML}${closeTag}`], {type: "image/svg+xml"});  
@@ -80,12 +83,6 @@ downloadBtn.addEventListener('click', function () {
         image.removeEventListener("load",gotImage);
 
         var ctx = canvas.getContext("2d");
-
-        ctx.fillStyle = color === "white" ? "black" : "white";
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-
-        if(format === "PNG")
-            ctx.clearRect(0,0, canvas.width,canvas.height);
 
         ctx.drawImage(image,0,0);
         var imageURL = canvas.toDataURL(`image/${format.toLowerCase()}`);
@@ -105,6 +102,9 @@ function changeCollegeName() {
     var collegeName = document.getElementById('collegeName').value;
     document.getElementById('logoName').textContent = collegeName;
 }
+
+// Set default text
+downloadBtn.innerText = `Download ${format}`;
 
 // Don't show dropdown when it is not available
 // if(isSafari)
