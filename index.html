@@ -25,28 +25,27 @@
             </p>
             <br>
 
-            <div class="form-group row">
+            <form class="form-group row" id="downloadForm">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <input type="text" id="collegeName" class="form-control mb-2 mb-md-0"
-                        placeholder="Enter your college name here">
+                        placeholder="Enter your college name here" required>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <button id="toggleColor" class="btn btn-block btn-dark shadow-sm">Dark Theme</button>
                 </div>
-                    <div class="col-md-2 btn-group showable">
-                        <button type="button" class="btn btn-block btn-primary shadow-sm" id="myBtn">Download</button>
+                    <div class="col-md-3 btn-group showable">
+                        <input type="submit" class="btn btn-block btn-primary shadow-sm" id="myBtn" value="Download SVG"></input>
                         <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" onclick="toggleSelect()">
                           <span class="sr-only" id="toggleSelect">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu showable" onclick="toggleSelect()">
                           <a class="dropdown-item" onclick="setFormat(this.innerText)">SVG</a>
                           <a class="dropdown-item" onclick="setFormat(this.innerText)">PNG</a>
-                          <a class="dropdown-item" onclick="setFormat(this.innerText)">JPEG</a>
                         </div>
                       </div>
                 <div class="col-md-2"></div>
-            </div>
+            </form>
             <br>
 
             <div class="card card-body shadow-sm border-0">
