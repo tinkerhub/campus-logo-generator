@@ -87,6 +87,8 @@ document.getElementById("downloadForm").addEventListener('submit', function(even
         ctx.drawImage(image,0,0);
         var imageURL = canvas.toDataURL(`image/${format.toLowerCase()}`);
 
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+
         triggerDownload(imageURL);
     });    
 
