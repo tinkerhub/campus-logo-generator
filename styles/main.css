@@ -25,7 +25,7 @@
   height: auto;
 }
 
-#canvas {
+#canvas, #image {
   width: 0;
   height: auto;
 }
